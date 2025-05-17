@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fireside Granny</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="firelight-overlay"></div>
+  <h1>🪵 Fireside Granny</h1>
+
+  <!-- 奶奶欢迎视频 -->
+  <div class="granny-avatar">
+    <video autoplay muted playsinline loop class="granny-video">
+      <source src="granny-welcome.mp4" type="video/mp4">
+    </video>
+  </div>
+  <button id="playAudioBtn">🔊 Hear Granny speak</button>
+
+  <p>Click a context below to hear what Granny has to say!</p>
+
+  <div class="context-buttons">
+    <button onclick="respond('rain')">🌧️ It's raining</button>
+    <button onclick="respond('night')">🌙 It's nighttime</button>
+    <button onclick="respond('sneeze')">🤧 You sneezed</button>
+    <button onclick="respond('forgot')">🔑 You forgot something</button>
+    <button onclick="respond('visit')">🚶 You visited her</button>
+  </div>
+
+  <div class="granny-response" id="responseBox">
+    Granny: Click a button and I’ll talk to you!
+  </div>
+  <script>
+    const audioBtn = document.getElementById("playAudioBtn");
+    const grannyContainer = document.querySelector(".granny-avatar");
+
+    audioBtn.addEventListener("click", () => {
+      // 替换当前视频为有声音的版本
+      grannyContainer.innerHTML = `
+        <video controls autoplay playsinline class="granny-video">
+          <source src="granny-welcome.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      `;
+    });
+  </script>
+  
+  <script src="script.js"></script>
+    <footer style="color: white; font-size: 0.85rem;">
+    © 2025 Roxy Rakko. All rights reserved.
+  </footer>
+</body>
+</html>
